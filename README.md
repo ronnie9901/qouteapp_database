@@ -15,11 +15,17 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+## Project Description:
 
+"Quotes" is a feature-rich mobile application developed using Flutter, incorporating concepts
+such as SQLite Database, Animation, API Calling, and Local JSON Bank. The app provides
+users with a diverse collection of inspirational quotes, empowering them with personalized
+features and a visually appealing interface.
 
 <div>
+      <img  height= "550" src="https://github.com/user-attachments/assets/bed87da9-5d6b-4232-957d-1d5386e45b7d"  />
    <img  height= "550" src="https://github.com/user-attachments/assets/48220208-da57-49a7-8026-c684a6ce0993"  />
-   <img  height= "550" src="https://github.com/user-attachments/assets/bed87da9-5d6b-4232-957d-1d5386e45b7d"  />
+
  
 
 </div>
