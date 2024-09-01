@@ -7,7 +7,7 @@ class ApiHelper {
   static ApiHelper apiServices = ApiHelper._();
   ApiHelper._();
   Future<List> fatchData() async {
-    String api = 'https://sheetdb.io/api/v1/07lozkfrzkg4w';
+    String api = 'https://sheetdb.io/api/v1/7zk7a4do030g9';
 
     Uri url = Uri.parse(api);
 

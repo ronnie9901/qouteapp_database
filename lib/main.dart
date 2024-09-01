@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qouteapp_database/view/category.dart';
 import 'package:qouteapp_database/view/homepage.dart';
+import 'package:qouteapp_database/view/setting.dart';
+import 'package:qouteapp_database/view/splacescreen.dart';
+
 
 void main() {
   runApp(const MyApp());
 }
-
+ThemeController themeController = Get.put(ThemeController());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -33,8 +35,8 @@ class MyApp extends StatelessWidget {
 
           )
       ),
-      // themeMode: Provider.of <homeproviderr>(context).isdark?ThemeMode.dark:ThemeMode.light,
-     home: Homepage(),
+      themeMode : themeController.isDark? ThemeMode.dark: ThemeMode.light,
+     home: SplashScreen(),
     );
   }
 }

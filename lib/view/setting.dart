@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../Controller/homeController.dart';
-import 'homepage.dart';
+
+ThemeController themeController = Get.put(ThemeController());
 
 class Settingpage extends StatelessWidget {
   const Settingpage({super.key});
@@ -15,7 +14,6 @@ class Settingpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController controller = Get.put(HomeController());
-    ThemeController themeController = Get.put(ThemeController());
 
     return Scaffold(
       appBar: AppBar(
@@ -30,18 +28,25 @@ class Settingpage extends StatelessWidget {
         children: [
           ListTile(
               title: themeController.isDark
-                  ? Text(' dark mode',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
-                  : Text(' light mode',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                  ? Text(
+                      ' dark mode',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    )
+                  : Text(' light mode',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               trailing: Switch(
                 inactiveThumbColor: Theme.of(context).colorScheme.primary,
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: themeController.isDark,
                 onChanged: (value) {
-                  themeController.setTheme();
+                  themeController.ThemeProvider(value);
                 },
               )),
           ListTile(
             onTap: () {
+              // controller.fetchFavouriteCategories();
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
@@ -59,14 +64,12 @@ class Settingpage extends StatelessWidget {
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                     onTap: () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                        builder: (context) => Settingpage(),
-                                      ));
+
                                     },
                                     child: Icon(
                                       CupertinoIcons.multiply,
-                                      size: 40,
+                                      size:
+                                      40,
                                       color: Colors.black,
                                     )),
                               ),
@@ -81,46 +84,39 @@ class Settingpage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Wrap(
-                            children: [
-                              ...List.generate(
-                                  controller.category.length,
-                                  (index) => InkWell(
-                                        onTap: () {
+                      GridView.builder(shrinkWrap: true,itemCount: controller.category.length,gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 10
+                      ), itemBuilder:(context, index){
+                        return GestureDetector(
+                          child:  Container(
+                            height: 100,
+                            width: 100,
+                            padding: EdgeInsets.only(bottom: 15,left: 10),
+                            alignment: Alignment.bottomLeft,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(fit: BoxFit.cover,image: AssetImage(controller.category[index]['image'])),
 
-                                        },
-                                        child: Stack(children: [
-                                          Container(
-                                            height: 150,
-                                            width: 180,
-                                            margin: EdgeInsets.all(10),
-                                            decoration: BoxDecoration(
-                                                color: Colors.black12,
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                image: DecorationImage(
-                                                  fit: BoxFit.cover,
-                                                  image: AssetImage(
-                                                      controller.category[index]
-                                                          ['image']),
-                                                )),
-                                            child: Padding(
-                                                padding: EdgeInsets.only(
-                                                    top: 120, left: 20),
-                                                child: Text(
-                                                  controller.category[index]
-                                                      ['category'],
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                )),
-                                          ),
-                                        ]),
-                                      ))
-                            ],
+                            ),
+                            child: Text(
+                              controller.category[index]['category'],
+                              style:
+                                 TextStyle(
+                                  color: Colors.white,
+
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+
+                              textAlign: TextAlign.center,
+                            ),
                           ),
+
+                        );
+                      }
+                      )
                         ],
                       ),
                     ),
@@ -131,14 +127,16 @@ class Settingpage extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('favorites list',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                Text(
+                  'favorites list',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
                 Icon(
                   Icons.favorite,
                   size: 30,
                 ),
               ],
             ),
-
           ),
         ],
       ),

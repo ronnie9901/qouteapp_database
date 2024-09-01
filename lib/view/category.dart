@@ -9,7 +9,6 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeController controller = Get.put(HomeController());
     return Scaffold(
       appBar: AppBar(
         bottom: PreferredSize(
@@ -18,7 +17,7 @@ class CategoryPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 onChanged: (value) {
-                  controller.search(value);
+                  // controller.search(value);
                 },
                 decoration: InputDecoration(prefixIcon: Icon(CupertinoIcons.search),label: Text('search')),
               ),
@@ -42,42 +41,29 @@ class CategoryPage extends StatelessWidget {
                     controller.category.length,
                     (index) => InkWell(
                           onTap: () {
-                            if (controller.category[index]['category'] == 'General') {
+
+                            if(controller.category[index]['category']=="love")
+                            {
                               controller.quotes.value = controller.mainQuotes;
                               controller.quotes.refresh();
-                              controller.preImages();
-                              controller.liquidController = LiquidController();
+                              // controller.preImages();
+                              controller.liquidController =LiquidController();
                               Get.back();
-                              // Future.delayed(const Duration(milliseconds: 500), () {
-                              //   Get.snackbar(
-                              //     'Quotes Category',
-                              //     'Showing general quotes',
-                              //     snackPosition: SnackPosition.BOTTOM,
-                              //     duration: const Duration(seconds: 3),
-                              //   );
-                              // });
-                            } else {
+                            }else
+                            {
                               controller.quotes.value = controller.mainQuotes
-                                  .where(
-                                      (quote) => quote.category == controller.category[index]['category']).toList();
+                                  .where((quote) => quote.category == controller.category[index]['category'])
+                                  .toList();
                               controller.quotes.refresh();
-                              controller.liquidController = LiquidController();
-                              controller.preImages();
+                              controller.liquidController=LiquidController();
                               Get.back();
-                              // Future.delayed(const Duration(milliseconds: 500), () {
-                              //   Get.snackbar(
-                              //     'Quotes Category Changed',
-                              //     snackPosition: SnackPosition.BOTTOM,
-                              //     'Showing ${controller.category[index]['category']} quotes',
-                              //     duration: const Duration(seconds: 3),
-                              //   );
-                              // });
                             }
+
                           },
                           child: Stack(children: [
                             Container(
                               height: 110,
-                              width: 180,
+                              width: 150,
                               margin: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                   color: Colors.black12,
@@ -98,7 +84,8 @@ class CategoryPage extends StatelessWidget {
                                   )),
                             ),
                           ]),
-                        ))
+                        ),
+                ),
               ],
             ),
           ],
@@ -107,3 +94,5 @@ class CategoryPage extends StatelessWidget {
     );
   }
 }
+
+HomeController controller = Get.put(HomeController());
