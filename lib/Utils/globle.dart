@@ -235,3 +235,38 @@ void _favCategoryBottomSheet(BuildContext context) {
     },
   );
 }
+List imagelist = [
+  'assets/affirmatiom/img1.jpg',
+  'assets/affirmatiom/image6.jpeg',
+  'assets/affirmatiom/image5.jpeg',
+  'assets/affirmatiom/image4.jpeg',
+  'assets/affirmatiom/image3.jpeg',
+];
+List imagelist2 = [
+  'assets/catimg/image22.jpeg',
+  'assets/catimg/image1.jpeg',
+  'assets/catimg/kind.jpeg',
+  'assets/catimg/success.jpeg',
+  'assets/catimg/grat.jpeg'
+];
+List imagelis3 = [
+  'assets/catimg/general.jpeg',
+  'assets/catimg/myfav.jpeg',
+  'assets/catimg/mycol.jpeg',
+  'assets/catimg/mymood.jpeg',
+  'assets/catimg/myqoute.jpeg'
+];
+Color c1 = Colors.white;
+List colorlist = [
+  Colors.tealAccent,
+  Colors.white,
+  Colors.black,
+  Colors.yellow,
+  Colors.pink,
+  Colors.grey,
+  Colors.green,
+  Colors.purple,
+  Colors.red,
+  Colors.pinkAccent,
+  Colors.blue,
+];
