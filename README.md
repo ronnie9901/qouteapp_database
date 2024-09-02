@@ -23,9 +23,16 @@ users with a diverse collection of inspirational quotes, empowering them with pe
 features and a visually appealing interface.
 
 <div>
-      <img  height= "550" src="https://github.com/user-attachments/assets/bed87da9-5d6b-4232-957d-1d5386e45b7d"  />
-   <img  height= "550" src="https://github.com/user-attachments/assets/48220208-da57-49a7-8026-c684a6ce0993"  />
 
- 
+<img  height= "550" src="https://github.com/user-attachments/assets/df38bb5e-b298-4738-b11c-87b05d54d2d7"  />
+       
+ <img  height= "550" src="https://github.com/user-attachments/assets/bed87da9-5d6b-4232-957d-1d5386e45b7d"  />
+   <img  height= "550" src="https://github.com/user-attachments/assets/48220208-da57-49a7-8026-c684a6ce0993"  />
+  
+
+
+https://github.com/user-attachments/assets/9222e08e-2719-4e8a-a6ae-03dbb4fc780f
+
+
 
 </div>
